@@ -1,0 +1,15 @@
+Flask==0.10.1
+Flask-Classy==0.6.10
+Jinja2==2.7.3
+MarkupSafe==0.23
+Werkzeug==0.9.6
+argparse==1.2.1
+distribute==0.6.24
+ipython==2.1.0
+itsdangerous==0.24
+mlpy==3.5.0
+numpy==1.8.1
+scikit-learn==0.15.0b1
+scipy==0.14.0
+whois==0.7
+wsgiref==0.1.2

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OpenDNS - Anthony Verez</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  <link rel="stylesheet" href="static/style.css">
+  <script src="static/scripts.js"></script>
+
+</head>
+<body>
+
+  <div class="view-container">
+    <div class="col-sm-3">
+      <ul class="nav nav-tabs" id="myTabs">
+        <li class="active"><a href="#all" data-toggle="tab">All ({{ all|length }})</a></li>
+        {% for item in classes.keys() %}
+          <li><a href="#{{item}}" data-toggle="tab">{{ item }} ({{ classes[item]|length }})</a></li>
+        {% endfor %}
+      </ul>
+    </div><!-- col -->
+
+    <div class="col-sm-9">
+      <div class="tab-content">
+        <div class="tab-pane active" id="all">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>FQDN</th>
+                <th>Occurrences</th>
+                <th></th>
+              </tr>
+            </thead>
+            {% for item in all %}
+              <tr class="item" id="{{ item }}">
+                <td>{{ item }}</td>
+                <td>{{ occurrences[item] }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+        {% for class in classes.keys() %}
+          <div class="tab-pane" id="{{ class }}">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>FQDN</th>
+                  <th>Occurences</th>
+                </tr>
+              </thead>
+              {% for item in classes[class] %}
+                <tr class="item" id="{{ item }}">
+                  <td>{{ item }}</td>
+                  <td>{{ occurrences[item] }}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        {% endfor %}
+      </div><!-- tab-content -->
+    </div><!-- col -->
+  </div>
+
+</body>
+</html>
