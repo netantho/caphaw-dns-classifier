@@ -1,3 +1,8 @@
+This project is as classifier of DNS queries for an OpenDNS queries dataset_.
+It aims at creating class of different FQDNs based on the activity of the FQDN, registration properties and filtering out noise.
+
+.. _dataset: https://gist.github.com/jedisct1/a962e4aceab1f5aaf9da.
+
 Usage
 -----
 
